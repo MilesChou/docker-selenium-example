@@ -5,6 +5,7 @@
   "helpers": {
     "WebDriverIO": {
       "url": "https://mileschou.github.io/",
+      "host": "hub",
       "browser": "chrome"
     }
   },
@@ -13,5 +14,11 @@
   },
   "bootstrap": false,
   "mocha": {},
-  "name": "docker-selenium-example"
+  "name": "docker-selenium-example",
+
+  "multiple": {
+    "basic": {
+      "browsers": ["chrome", "firefox"]
+    }
+  }
 }

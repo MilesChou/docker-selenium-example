@@ -1,0 +1,40 @@
+version: "3"
+services:
+  tester:
+    build: .
+    working_dir: /source
+    volumes:
+      - .:/source
+    depends_on:
+      - chrome
+      - firefox
+
+  hub:
+    image: selenium/hub:3.141.59-iron
+    container_name: hub
+    ports:
+      - "4444:4444"
+
+  chrome:
+    image: selenium/node-chrome-debug:3.141.59-iron
+    volumes:
+      - /dev/shm:/dev/shm
+    depends_on:
+      - hub
+    environment:
+      - HUB_HOST=hub
+      - HUB_PORT=4444
+    ports:
+      - "5900:5900"
+
+  firefox:
+    image: selenium/node-firefox-debug:3.141.59-iron
+    volumes:
+      - /dev/shm:/dev/shm
+    depends_on:
+      - hub
+    environment:
+      - HUB_HOST=hub
+      - HUB_PORT=4444
+    ports:
+      - "5901:5900"
