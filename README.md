@@ -2,4 +2,4 @@
 
 Example for using Selenium on Docker
 
-See https://mileschou.github.io/selenium-docker-example/
+See https://mileschou.github.io/blog/selenium-docker-example/

@@ -10,13 +10,12 @@ services:
       - firefox
 
   hub:
-    image: selenium/hub:3.141.59-iron
-    container_name: hub
+    image: selenium/hub:3.141.59
     ports:
       - "4444:4444"
 
   chrome:
-    image: selenium/node-chrome-debug:3.141.59-iron
+    image: selenium/node-chrome-debug:3.141.59
     volumes:
       - /dev/shm:/dev/shm
     depends_on:
@@ -28,7 +27,7 @@ services:
       - "5900:5900"
 
   firefox:
-    image: selenium/node-firefox-debug:3.141.59-iron
+    image: selenium/node-firefox-debug:3.141.59
     volumes:
       - /dev/shm:/dev/shm
     depends_on:
